@@ -238,9 +238,9 @@ private getDeviceList() {
 	apiGet("/api/userdevicedetails", []) { response ->
 		if (response.status == 200) {
 			response.data.Devices.each { device ->
-				if (!(device.MyQDeviceTypeId == 1||device.MyQDeviceTypeId == 2||device.MyQDeviceTypeId == 3||device.MyQDeviceTypeId == 5||device.MyQDeviceTypeId == 7)) {
+				
 					deviceList.add( device.MyQDeviceTypeId.toString() + "|" + device.TypeID )
-				}
+				
 			}
 		}
 	}    
