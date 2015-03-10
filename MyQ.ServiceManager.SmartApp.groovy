@@ -303,11 +303,11 @@ private apiGet(apiPath, apiQuery = [], callback = {}) {
 		path: apiPath,
 		query: apiQuery
 	]
-	//log.debug "HTTP GET request: " + apiParams  
+	log.debug "HTTP GET request: " + apiParams  
 	// try to call 
 	try {
 		httpGet(apiParams) { response ->
-        	//log.debug "HTTP GET response: " + response.data          
+        	log.debug "HTTP GET response: " + response.data          
 			callback(response)
 		}
 	}	catch (Error e)	{
@@ -329,10 +329,10 @@ private apiPut(apiPath, apiBody = [], callback = {}) {
 		body: apiBody
 	]
     
-    //log.debug "HTTP PUT request: " + apiParams         
+	log.debug "HTTP PUT request: " + apiParams         
 	try {
 		httpPut(apiParams) { response ->
-			//log.debug "HTTP PUT response: " + response.data            
+			log.debug "HTTP PUT response: " + response.data            
 			callback(response)
 		}
 	} catch (Error e)	{
