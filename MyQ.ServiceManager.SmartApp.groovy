@@ -373,7 +373,7 @@ def refresh() {
 		last: now(),
 		runNow: true
 	]
-	//log.debug "state: " + state.data
+	//log.debug "Issuing refresh with state: " + state.data
 	//update device to state data
 	def updated = updateDeviceData()
 	//log.debug "state update: " + updated
@@ -422,6 +422,9 @@ def sendCommand(child, attributeName, attributeValue) {
 	    	
 		//Send command
 		apiPut(apiPath, apiBody) 	
+
+		// Schedule a refresh to verify it has been completed we give it 45 seconds
+		runIn(45, refresh, [overwrite: false])
 		
 		return true
 	} 
